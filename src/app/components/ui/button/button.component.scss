@@ -1,0 +1,427 @@
+@use 'sass:color';
+@use './styles/variables' as *;
+
+$colors: (
+  primary green white,
+  secondary #6c757d white,
+  success #28a745 white,
+  danger #d40015 white,
+  warning #ffc107 white,
+  info #17a2b8 white,
+  light #f8f9fa black,
+  dark #343a40 white,
+  light-dark #979797 white,
+);
+
+// Base
+.comp-button-filled {
+
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  p {
+
+    margin: 0;
+    height: min-content;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.5;
+    text-wrap: nowrap;
+
+  }
+
+}
+
+// Colors
+@each $color, $value, $text-color in $colors {
+
+  .comp-button-filled.color-#{$color},
+  .comp-button-raised.color-#{$color} {
+
+    background-color: $value;
+    color: $text-color;
+
+  }
+
+  .comp-button-filled.color-#{$color}:hover,
+  .comp-button-raised.color-#{$color}:hover {
+
+    background-color: darken($value, 10%);
+
+  }
+
+  .comp-button-filled.color-#{$color}:active {
+
+    background-color: darken($value, 20%);
+
+  }
+
+  .comp-button-filled.color-#{$color}:disabled {
+
+    background-color: #d9d9d94f;
+    color: #c5c5c5;
+    cursor: not-allowed;
+
+  }
+
+  .comp-button-raised.color-#{$color}:active {
+
+    box-shadow: none;
+
+  }
+
+  .comp-button-raised.color-#{$color}:disabled {
+
+    box-shadow: none;
+
+  }
+
+  .comp-button-outlined.color-#{$color} {
+
+    color: $value;
+    border-color: $value;
+    background-color: transparent
+  }
+
+  .comp-button-outlined.color-#{$color}:hover:not(:disabled) {
+
+    color: $text-color;
+    background-color: $value;
+
+  }
+
+  .comp-button-outlined.color-#{$color}:active:not(:disabled) {
+
+    color: $text-color;
+    background-color: darken($value, 10%);
+
+  }
+
+  .comp-button-outlined.color-#{$color}:disabled {
+
+    border-color: transparent;
+
+  }
+
+  .comp-button-text.color-#{$color} {
+
+    color: $value;
+    background-color: transparent;
+
+  }
+
+  .comp-button-text.color-#{$color}:hover:not(:disabled) {
+
+    background-color: adjust-color($value, $alpha: -0.8);
+
+  }
+
+  .comp-button-text.color-#{$color}:active:not(:disabled) {
+
+    background-color: adjust-color($value, $alpha: -0.6);
+
+  }
+
+  .comp-button-flat.color-#{$color} {
+
+    color: $value;
+    background-color: adjust-color($value, $alpha: -0.9);
+
+  }
+
+  .comp-button-flat.color-#{$color}:hover:not(:disabled) {
+
+    background-color: adjust-color($value, $alpha: -0.8);
+
+  }
+
+  .comp-button-flat.color-#{$color}:active:not(:disabled) {
+
+    background-color: adjust-color($value, $alpha: -0.7);
+
+  }
+
+}
+
+// Sizes
+.comp-button-filled.size-small {
+
+  padding: 0 0.5rem;
+  height: 40px;
+
+  &:not(:has(p)) {
+
+    width: 40px;
+    aspect-ratio: 1/1;
+
+  }
+
+  i {
+
+    font-size: 1.75em;
+
+  }
+
+  p {
+
+    font-size: 1.5em;
+
+  }
+
+}
+
+.comp-button-filled.size-medium {
+
+  padding: 0 0.5rem;
+  height: 45px;
+  gap: 0.25rem;
+
+  &:not(:has(p)) {
+
+    width: 45px;
+    aspect-ratio: 1/1;
+
+  }
+
+  i {
+
+    font-size: 2em;
+
+  }
+
+  p {
+
+    font-size: 1.5em;
+
+  }
+
+}
+
+.comp-button-filled.size-large {
+
+  padding: 0 0.75rem;
+  height: 50px;
+  gap: 0.25rem;
+
+  &:not(:has(p)) {
+
+    width: 50px;
+    aspect-ratio: 1/1;
+
+  }
+
+  i {
+
+    font-size: 2.25em;
+
+  }
+
+  p {
+
+    font-size: 1.75em;
+
+  }
+
+}
+
+.comp-button-filled.icon-right {
+
+  flex-direction: row-reverse;
+}
+
+.comp-button-filled.responsive {
+
+  @media screen and (max-width: 768px) {
+
+    &.size-large {
+
+      padding: 0 0.5rem;
+      height: 45px;
+      gap: 0.25rem;
+
+      &:not(:has(p)) {
+
+        width: 45px;
+        aspect-ratio: 1/1;
+
+      }
+
+      i {
+
+        font-size: 2em;
+
+      }
+
+      p {
+
+        font-size: 1.5em;
+
+      }
+    }
+
+  }
+
+  @media screen and (max-width: 576px) {
+
+    &.size-medium,
+    &.size-large {
+
+      padding: 0 0.5rem;
+      height: 40px;
+
+      &:not(:has(p)) {
+
+        width: 40px;
+        aspect-ratio: 1/1;
+
+      }
+
+      i {
+
+        font-size: 1.75em;
+
+      }
+
+      p {
+
+        font-size: 1.5em;
+
+      }
+    }
+
+  }
+
+}
+
+.comp-button-filled.comp-button-filled.responsive-text {
+
+  @media screen and (max-width: 576px) {
+
+    &.size-large,
+    &.size-medium,
+    &.size-small {
+
+      height: 40px;
+      width: 40px;
+      aspect-ratio: 1/1;
+
+      p {
+
+        display: none !important;
+
+      }
+
+    }
+
+  }
+
+}
+
+.comp-button-filled.icon-left {
+
+  flex-direction: row;
+
+}
+
+.comp-button-filled.icon-up.rounded {
+
+  flex-direction: column;
+  height: auto;
+  gap: 0;
+  padding: 0.5rem;
+
+  &.rounded {
+
+    border-radius: 1.5rem;
+
+  }
+
+}
+
+.comp-button-filled.icon-down {
+
+  flex-direction: column-reverse;
+  height: auto;
+  gap: 0;
+  padding: 0.5rem;
+
+  &.rounded {
+
+    border-radius: 1.5rem;
+
+  }
+
+}
+
+// Shapes
+.comp-button-filled.rounded {
+
+  border-radius: 50px;
+
+}
+
+// Styles
+.comp-button-raised {
+
+  @extend .comp-button-filled;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+}
+
+.comp-button-outlined {
+
+  @extend .comp-button-filled;
+
+}
+
+.comp-button-text {
+
+  @extend .comp-button-filled;
+
+}
+
+.comp-button-flat {
+
+  @extend .comp-button-filled;
+
+}
+
+:host {
+  height: fit-content;
+  width: fit-content;
+}
+
+::ng-deep {
+
+  .p-tooltip.p-tooltip-top,
+  .p-tooltip.p-tooltip-bottom {
+
+    padding: 0.25rem;
+
+  }
+
+  .p-tooltip-top .p-tooltip-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -0.25rem;
+    border-width: .25em .25em 0;
+
+  }
+
+  .p-tooltip.p-tooltip-top .p-tooltip-arrow {
+    border-top-color: #4b5563;
+
+
+  }
+
+}

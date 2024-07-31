@@ -1,0 +1,19 @@
+<button class="comp-button-{{buttonStyle()}} color-{{color()}} size-{{size()}} {{rounded() ? 'rounded' : ''}}
+  icon-{{iconPosition()}} {{responsive() ? 'responsive' : ''}} {{responsiveText() ? 'responsive-text' : ''}}"
+  [type]="type()" [ariaLabel]="label()" [disabled]="disabled()" (click)="handleClick()" [pTooltip]="tooltip()"
+  [tooltipPosition]="tooltipPosition()" [tooltipDisabled]="false" hideDelay="300000">
+
+  @if (icon()) {
+  @if (iconType() == 'material') {
+  <i class="material-icons-round">{{
+    icon() }}</i>
+  } @else {
+  <i class="{{ icon() }}"></i>
+  }
+  }
+
+  @if (label()) {
+  <p> {{ label() }}</p>
+  }
+
+</button>

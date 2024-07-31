@@ -1,0 +1,29 @@
+// Size variables to be used in padding, margin, gap, etc.
+$sz-025: 0.25rem;
+$sz-05: 0.5rem;
+$sz-075: 0.75rem;
+$sz-1: 1rem;
+$sz-15: 1.5rem;
+$sz-2: 2rem;
+$sz-25: 2.5rem;
+$sz-3: 3rem;
+
+// Font size variables to be used in font-size
+$fs-025: 0.25em;
+$fs-05: 0.5em;
+$fs-075: 0.75em;
+$fs-1: 1em;
+$fs-125: 1.25em;
+$fs-15: 1.5em;
+$fs-175: 1.75em;
+$fs-2: 2em;
+$fs-25: 2.5em;
+$fs-3: 3em;
+
+// Breakpoints to be used in media queries
+$screen-xs: 0;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-xxl: 1400px;

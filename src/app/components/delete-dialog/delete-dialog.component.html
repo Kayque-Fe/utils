@@ -1,0 +1,39 @@
+<p-dialog [modal]="true" [(visible)]="visible"
+  [style]="{ width: '40rem', borderRadius: '0.5rem', overflow: 'hidden', margin: '1rem' }" [showHeader]="false">
+
+  <div class="p-2 pt-0 flex gap-2 flex-column" style="border-radius: 0.5rem;">
+
+    <ng-page-title title="Confirmação" subtitle="Confirmação de remoção" icon="delete" iconStyle="box" size="small"
+      titleStyle="default">
+      <ng-button icon="close" size="small" buttonStyle="text" [rounded]="true" color="dark"
+        (click)="visible.set(false)" />
+    </ng-page-title>
+
+    <div class="flex flex-column align-items-center w-full p-3 gap-3 text-center">
+      <p class="optional-data">Tem certeza de que deseja remover este item?</p>
+
+      <p>Revise as informações abaixo antes de continuar.</p>
+
+    </div>
+
+    <ng-content>
+      <p class="no-content">Adicione algo ao <b><code>&lt;</code>ng-delete-dialog<code>&gt;</code></b> para ser
+        mostrado aqui</p>
+    </ng-content>
+
+    <div class="flex flex-column align-items-center w-full p-3 gap-3 text-center">
+      <p>Lembre-se, esta ação é <b style="font-weight: 700;">IRREVERSÍVEL</b>!</p>
+      <p class="optional-data">Qualquer dado atrelado a esse item também será removido.</p>
+
+    </div>
+
+    <div class="btn-bottom" style="border-top: 1px solid #e0e0e0;">
+      <ng-button label="Remover" icon="delete" size="medium" color="danger" buttonStyle="flat" [responsive]="true" />
+      <ng-button label="Cancelar" icon="cancel" size="medium" color="light-dark" buttonStyle="text" [responsive]="true"
+        (click)="visible.set(false)" />
+
+    </div>
+
+  </div>
+
+</p-dialog>

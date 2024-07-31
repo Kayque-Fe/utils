@@ -1,0 +1,258 @@
+@use 'sass:color';
+@use './styles/variables' as *;
+
+// Component default style
+.comp-page-title-default {
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: $component-padding-default;
+  gap: $component-gap;
+
+  background-color: $color-background;
+
+  border-bottom: 1px solid $color-component-border;
+
+  .page-title-container {
+
+    display: flex;
+    flex-basis: content;
+
+    align-items: center;
+
+    width: fit-content;
+
+    gap: 0.5rem;
+
+  }
+
+
+  .side-icon-default {
+
+    color: $color-icon;
+    background-color: $color-icon-background;
+
+    border: 2px solid $color-icon-background;
+    border-radius: $icon-border-radius;
+
+    font-size: $font-size-icon;
+
+    padding: $icon-padding;
+
+    aspect-ratio: 1/1;
+    user-select: none;
+
+  }
+
+  .side-icon-box {
+
+    @extend .side-icon-default;
+
+    border-color: transparent;
+    background-color: adjust-color($color-icon-background, $alpha: -0.8);
+    color: $color-icon-background;
+
+  }
+
+  .side-icon-shadow {
+
+    @extend .side-icon-default;
+
+    background-color: transparent;
+    color: $color-icon-background;
+    border-color: $color-icon-border;
+
+  }
+
+  .page-title-content {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: $title-gap;
+
+    .page-title {
+
+      font-size: $font-size-title;
+      font-weight: 500;
+
+      color: $color-title;
+
+    }
+
+    .page-subtitle {
+
+      font-size: $font-size-subtitle;
+
+      color: $color-subtitle;
+
+    }
+
+  }
+
+  & .ng-content-container:empty {
+
+    display: none;
+
+  }
+
+  .ng-content-container {
+
+    display: flex;
+    flex: 1;
+    justify-content: flex-end
+  }
+
+}
+
+// Component clear style
+.comp-page-title-clear {
+
+  @extend .comp-page-title-default;
+
+  border: none;
+  padding: 0;
+
+}
+
+// Component box style
+.comp-page-title-box {
+
+  @extend .comp-page-title-default;
+
+  border: 1px solid $color-component-border;
+  border-radius: $component-border-radius;
+
+  padding: $component-padding-box;
+
+
+}
+
+.comp-page-title-default.size-small {
+
+  .side-icon-default,
+  .side-icon-box,
+  .side-icon-shadow {
+
+    font-size: $font-size-icon-sm;
+
+  }
+
+  .page-title-content {
+
+    .page-title {
+
+      font-size: $font-size-title-sm;
+
+    }
+
+    .page-subtitle {
+
+      font-size: $font-size-subtitle-sm;
+
+    }
+
+  }
+
+}
+
+.comp-page-title-default.size-medium {
+
+  .side-icon-default,
+  .side-icon-box,
+  .side-icon-shadow {
+
+    font-size: $font-size-icon-md;
+
+  }
+
+  .page-title-content {
+
+    .page-title {
+
+      font-size: $font-size-title-md;
+
+    }
+
+    .page-subtitle {
+
+      font-size: $font-size-subtitle-md;
+
+    }
+
+  }
+
+}
+
+// Media queries
+@media screen and (max-width: $screen-sm) {
+
+  .comp-page-title-default,
+  .comp-page-title-box,
+  .comp-page-title-shadow {
+
+
+    .side-icon-default,
+    .side-icon-box,
+    .side-icon-shadow {
+
+      font-size: $font-size-icon-sm !important;
+
+    }
+
+    .page-title-content {
+
+      .page-title {
+
+        font-size: $font-size-title-sm !important;
+
+      }
+
+      .page-subtitle {
+
+        font-size: $font-size-subtitle-sm !important;
+
+      }
+
+    }
+
+  }
+
+}
+
+@media screen and (max-width: $screen-md) {
+
+  .comp-page-title-default,
+  .comp-page-title-box,
+  .comp-page-title-shadow {
+
+    .side-icon-default,
+    .side-icon-box,
+    .side-icon-shadow {
+
+      font-size: $font-size-icon-md;
+
+    }
+
+    .page-title-content {
+
+      .page-title {
+
+        font-size: $font-size-title-md;
+
+      }
+
+      .page-subtitle {
+
+        font-size: $font-size-subtitle-md;
+
+      }
+
+    }
+
+  }
+
+}

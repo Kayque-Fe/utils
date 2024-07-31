@@ -1,0 +1,23 @@
+<div class="comp-dropdown">
+  <ng-button label="Opções" size="small" icon="settings" (click)="toggleDropdown()" class="dropbutton" />
+
+  @if (dropdown) {
+
+  <div class="dropdown-container" (clickOutside)="clickOut()" [@dropdown]="dropdown">
+
+    <div class="dropdown-content">
+
+      <ng-button label="Item 3" size="small" buttonStyle="flat" color="primary" />
+      <ng-button label="Item 2" size="small" buttonStyle="flat" color="primary" />
+      <ng-button label="Item 3" size="small" buttonStyle="flat" color="primary" />
+      <ng-button label="Item 2" size="small" buttonStyle="flat" color="primary" />
+      <ng-button label="Item 3" size="small" buttonStyle="flat" color="primary" />
+      <ng-button label="Item 2" size="small" buttonStyle="flat" color="primary" />
+
+    </div>
+
+  </div>
+
+  }
+
+</div>

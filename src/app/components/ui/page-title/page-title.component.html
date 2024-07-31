@@ -1,0 +1,32 @@
+<header class="comp-page-title-{{titleStyle()}} size-{{size()}}">
+
+  <div class="page-title-container">
+
+    @if (icon()) {
+    @if (iconType() == 'material') {
+    <i class="material-icons-round side-icon-{{iconStyle()}}">{{
+      icon() }}</i>
+    } @else {
+    <i class="{{ icon() }} side-icon-{{iconStyle()}}"></i>
+    }
+    }
+
+    <div class="page-title-content">
+      @if (title()) {
+      <h1 class="page-title">{{ title() }}</h1>
+      }
+
+      @if (subtitle()) {
+      <p class="page-subtitle">{{ subtitle() }}</p>
+      }
+
+    </div>
+
+  </div>
+
+  <div class="ng-content-container">
+    <ng-content></ng-content>
+
+  </div>
+
+</header>
